@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router, Routes ,Route } from 'react-router-dom';
+import PalestinianCulture from './pages/PalestinianCulture';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import Index from './pages/Index';
+import Gallery from './pages/Gallery';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+      <Navbar/>
+        <Routes>
+              <Route path='/' element={<Index/>} />
+              <Route path='/gallery' element={<Gallery/>} />
+              <Route path='/palestinian-culture' element={<PalestinianCulture/>} />
+              <Route path='/sign-up' element={<SignUp/>} />
+              <Route path='/sign-in' element={<SignIn/>} />
+        </Routes>       
+      </Router> 
     </div>
   );
 }
